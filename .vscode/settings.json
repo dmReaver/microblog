@@ -1,0 +1,9 @@
+{
+  "python.pythonPath": "venv/bin/python",
+  "files.associations": {
+    "*.html": "jinja-html"
+  },
+  "cSpell.words": [
+    "wtforms"
+  ],
+}
