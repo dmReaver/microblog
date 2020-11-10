@@ -2,11 +2,12 @@ from app import app
 from app.forms import LoginForm
 from app.models import User
 from flask import render_template, flash, redirect, url_for
-from flask_login import current_user, login_user, logout_user
+from flask_login import current_user, login_user, logout_user, login_required
 
 
 @app.route('/')
 @app.route('/index')
+@login_required
 def index():
     user = {'username': 'dmitry'}
     posts = [
@@ -31,8 +32,8 @@ def login():
         return redirect(url_for('index'))
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(username=from.username.data).first()
-        if user is None or not in user.check_password(form.password.data):
+        user = User.query.filter_by(username=form.username.data).first()
+        if user is None or not user.check_password(form.password.data):
             flash(f'Invalid user name or password')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
