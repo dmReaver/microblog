@@ -4,6 +4,7 @@
     "*.html": "jinja-html"
   },
   "cSpell.words": [
+    "werkzeug",
     "wtforms"
   ],
 }
