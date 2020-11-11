@@ -6,9 +6,10 @@ class Config:
     SECRET_KEY = os.environ.get('SECREY_KEY') or 'you-will-never-guess'
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABSE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'app.db')
-    SQLALCHEMY_TRACK_MODIFICATIONS = False  # отключает функцию Flask-SQLAlchemy, которая мне 
-                                            # не нужна, которая должна сигнализировать приложению 
-                                            # каждый раз, когда в базе данных должно быть внесено 
-                                            # изменение.
-
-    
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    MAIL_SERVER = os.environ.get('MAIL_SERVER')
+    MAIL_PORT = int(os.environ.get('MAIL_PORT') or 25)
+    MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS') is not None
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    ADMINS = ['your-email@example.com']
