@@ -13,6 +13,7 @@
   <div>
     Microblog:
     <a href="{{ url_for('index') }}">HOME</a>
+    <a href="{{ url_for('explore') }}">Explore</a>
     {% if current_user.is_anonymous %}
     <a href="{{ url_for('login') }}">LOGIN</a>
     {% else %}
