@@ -17,3 +17,5 @@ class Config:
     ADMINS = ['your-email@example.com']
     
     POSTS_PER_PAGE = 10
+
+    LANGUAGES = ['us', 'ru']
